@@ -54,7 +54,7 @@ public class Main {
         try {
             cmd = parser.parse(options, args);
             if (cmd.hasOption("u")) {
-                Document document = Jsoup.parse(WebRequest.makeRequest(cmd.getOptionValue(u)));
+                Document document = Jsoup.parse(WebRequest.makeWebRequest(cmd.getOptionValue(u)));
                 System.out.println(document);
             }
 
@@ -71,7 +71,7 @@ public class Main {
             System.out.println(e.getMessage());
             helper.printHelp("go2web:", options);
             System.exit(0);
-        } catch (IOException | InterruptedException | GeneralSecurityException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }
